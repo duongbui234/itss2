@@ -3,10 +3,6 @@ import queryString from 'query-string';
 
 console.log(process.env.NODE_ENV);
 const axiosClient = axios.create({
-  baseURL:
-    process.env.NODE_ENV === 'development'
-      ? process.env.REACT_APP_API_LOCAL_BASE_URL
-      : process.env.REACT_APP_API_BASE_URL,
   headers: {
     'content-type': 'application/json',
   },
