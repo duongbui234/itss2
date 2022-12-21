@@ -173,26 +173,65 @@ function CorrectWordResult({
           </Button>
         </div>
       </div>
-      &nbsp;&nbsp;
-      <div>Lịch sử bài thi</div>
-      {gameHistory.map((answer, index) => (
-        <div>
-          <div>
-            Câu hỏi: <span>{answer.mean}</span>
-          </div>
-          <div>
-            Đáp án:
-            <span>{answer.word}</span>
-            {answer.wrongList.map((wrongAnswer, index) => (
-              <div>
-                <span>{wrongAnswer.word}</span>
+      <h1 className="mt-10 ">Lịch sử bài thi</h1>
+      {gameHistory.map((question, index) => {
+        var status = question.word === question.userAnswer ? 1 : 2;
+        return (
+          <>
+            <div
+              className={`${classes.mainContent} ${
+                status !== 0 ? 'disabled' : 'ani-fade'
+              }`}>
+              {/* question */}
+              <div className="flex-center-col mt-10">
+                <span className={`${classes.question} t-center`}>
+                  {question.mean}
+                </span>
+                <p
+                  className={`${classes.result} ${
+                    status === 1 ? 'right' : 'wrong'
+                  }`}>
+                  {status === 1 ? 'Bạn đã trả lời đúng' : 'Bạn đã trả lời sai'}
+                </p>
               </div>
-            ))}
-            <span>Bạn đã chọn: {answer.userAnswer}</span>
-          </div>
-          &nbsp;&nbsp;
-        </div>
-      ))}
+
+              {/* answers */}
+
+              <div className={classes.answers}>
+                <div
+                  className={`${classes.answerItem} flex-center-col p-5
+                      `}
+                  key={index}>
+                  <p className="mb-2 t-center right">{question.word}</p>
+                  {question.phonetic && (
+                    <span className="phonetic t-center">
+                      /{question.phonetic}/
+                    </span>
+                  )}
+                </div>
+                {question.wrongList.map((answer, index) => (
+                  <div
+                    className={`${classes.answerItem} flex-center-col p-5
+                      `}
+                    key={index}>
+                    <p
+                      className={`mb-2 t-center  ${
+                        answer.word === question.userAnswer ? 'wrong' : ''
+                      }`}>
+                      {answer.word}
+                    </p>
+                    {answer.phonetic && (
+                      <span className="phonetic t-center">
+                        /{answer.phonetic}/
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        );
+      })}
     </div>
   );
 }
