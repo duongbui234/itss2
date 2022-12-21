@@ -1,8 +1,8 @@
 import axios from 'axios';
 import queryString from 'query-string';
 
-console.log(process.env.NODE_ENV);
 const axiosClient = axios.create({
+  baseURL: 'https://hama-dictionary.onrender.com',
   headers: {
     'content-type': 'application/json',
   },

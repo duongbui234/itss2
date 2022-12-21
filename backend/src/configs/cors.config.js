@@ -5,7 +5,7 @@ const app = express();
 const corsConfig = {
   // Configures the Access-Control-Allow-Origin
   origin:
-    app.get('env') !== 'production'
+    process.env.NODE_ENV !== 'production'
       ? 'http://localhost:3000'
       : process.env.CORS_ORIGIN,
 
