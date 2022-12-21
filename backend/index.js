@@ -12,7 +12,7 @@ const https = require('https');
 
 // import local file
 const { MAX } = require('./src/constant');
-// const corsConfig = require('./src/configs/cors.config');
+const corsConfig = require('./src/configs/cors.config');
 const accountApi = require('./src/apis/account.api');
 const wordApi = require('./src/apis/word.api');
 const gameApi = require('./src/apis/game.api');
@@ -29,7 +29,6 @@ const normalizePort = (port) => parseInt(port, 10);
 const PORT = normalizePort(process.env.PORT);
 
 // ================== setup ==================
-
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 const dev = app.get('env') !== 'production';
@@ -38,7 +37,7 @@ if (!dev) {
   app.disable('x-powered-by');
   app.use(morgan('common'));
   app.get('*', (req, res) =>
-    res.sendFile(path.join(__dirname, '/frontend/build/index.html')),
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html')),
   );
 } else {
   app.use(morgan('dev'));
@@ -62,7 +61,7 @@ mongoose
 app.use(express.json({ limit: MAX.SIZE_JSON_REQUEST }));
 app.use(express.urlencoded({ limit: MAX.SIZE_JSON_REQUEST }));
 app.use(cookieParser());
-app.use(cors());
+app.use(cors(corsConfig));
 
 // ================== Listening ... ==================
 app.listen(PORT, () => {
