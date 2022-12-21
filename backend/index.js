@@ -70,6 +70,10 @@ app.listen(PORT, () => {
 
 // ================== Apis ==================
 const BASE_URL = '/apis';
+app.get(`${BASE_URL}/test`, (req, res, next) => {
+  return res.status(200).json({ message: 'test' });
+});
+
 app.use(`${BASE_URL}/account`, accountApi);
 app.use(`${BASE_URL}/word`, wordApi);
 app.use(`${BASE_URL}/games`, gameApi);

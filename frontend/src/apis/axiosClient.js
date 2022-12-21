@@ -1,6 +1,7 @@
 import axios from 'axios';
 import queryString from 'query-string';
 
+console.log(process.env.NODE_ENV);
 const axiosClient = axios.create({
   baseURL:
     process.env.NODE_ENV === 'development'
