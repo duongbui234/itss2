@@ -42,68 +42,11 @@ function CorrectWordResult({
   const history = useHistory();
   const dispatch = useDispatch();
   const { isAuth, coin } = useSelector((state) => state.userInfo);
-  // gameHistory = [
-  //   {
-  //     word: 'indicate',
-  //     mean: 'thể hiện, trình bày',
-  //     phonetic: 'ˈɪndɪkeɪt',
-  //     wrongList: [
-  //       { word: 'show', phonetic: 'ʃəʊ' },
-  //       { word: 'indicate', phonetic: 'ˈɪndɪkeɪt' },
-  //       { word: 'conduct', phonetic: 'kənˈdʌkt' },
-  //     ],
-  //     userAnswer: 'indicate',
-  //   },
-  //   {
-  //     word: 'conduct',
-  //     mean: 'triển khai, thực hiện',
-  //     phonetic: 'kənˈdʌkt',
-  //     wrongList: [
-  //       { word: 'show', phonetic: 'ʃəʊ' },
-  //       { word: 'indicate', phonetic: 'ˈɪndɪkeɪt' },
-  //       { word: 'conduct', phonetic: 'kənˈdʌkt' },
-  //     ],
-  //     userAnswer: 'assure',
-  //   },
-  //   {
-  //     word: 'assure',
-  //     mean: 'đảm bảo, cam đoan',
-  //     phonetic: 'əˈʃʊə(r)',
-  //     wrongList: [
-  //       { word: 'show', phonetic: 'ʃəʊ' },
-  //       { word: 'indicate', phonetic: 'ˈɪndɪkeɪt' },
-  //       { word: 'conduct', phonetic: 'kənˈdʌkt' },
-  //     ],
-  //     userAnswer: 'show',
-  //   },
-  //   {
-  //     word: 'show',
-  //     mean: 'thể hiện, chỉ ra',
-  //     phonetic: 'ʃəʊ',
-  //     wrongList: [
-  //       { word: 'show', phonetic: 'ʃəʊ' },
-  //       { word: 'indicate', phonetic: 'ˈɪndɪkeɪt' },
-  //       { word: 'conduct', phonetic: 'kənˈdʌkt' },
-  //     ],
-  //     userAnswer: 'assure',
-  //   },
-  //   {
-  //     word: 'assign',
-  //     mean: 'chỉ định',
-  //     phonetic: 'əˈsaɪn',
-  //     wrongList: [
-  //       { word: 'show', phonetic: 'ʃəʊ' },
-  //       { word: 'indicate', phonetic: 'ˈɪndɪkeɪt' },
-  //       { word: 'conduct', phonetic: 'kənˈdʌkt' },
-  //     ],
-  //     userAnswer: 'assure',
-  //   },
-  // ];
-  // console.log(gameHistory);
+
   // play win audio
-  useEffect(() => {
-    onPlayAudio(winAudioSrc);
-  }, []);
+  // useEffect(() => {
+  //   onPlayAudio(winAudioSrc);
+  // }, []);
 
   // save coin and update highscore
   useEffect(() => {
