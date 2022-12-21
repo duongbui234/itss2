@@ -6,6 +6,7 @@ export const getUserInfo = createAsyncThunk(
   async () => {
     try {
       const apiRes = await accountApi.getUserInfo();
+      console.log(apiRes);
       if (apiRes && apiRes.status === 200) {
         return apiRes.data.user;
       }
