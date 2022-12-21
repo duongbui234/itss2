@@ -29,8 +29,8 @@ const normalizePort = (port) => parseInt(port, 10);
 const PORT = normalizePort(process.env.PORT);
 
 // ================== setup ==================
-const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, '/frontend/build')));
+
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 const dev = app.get('env') !== 'production';
 
