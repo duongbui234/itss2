@@ -8,6 +8,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import useStyle from '../../components/FeatureBox/style';
+import '../../components/FeatureBox/index.scss';
 
 import QuizIcon from '@mui/icons-material/Quiz';
 
@@ -71,19 +72,23 @@ function LessonDataPage() {
       <Grid container spacing={3}>
         {box.map((box, index) => (
           <Grid item xs={12} md={6} lg={4} key={index}>
-            <Link
-              to={{
-                pathname: box.to,
-                state: { page: box.page, packInfo: box.packInfo, perPage:box.perPage },
-              }}
-              className={`${classes.root} flex-center--ver w-100`}>
-              <img className={classes.icon} src={box.imgUrl} alt="Icon" />
-              <div>
-                <h2 className={classes.title}>{box.title}</h2>
-                <p className={classes.subTitle}>{box.subTitle}</p>
-              </div>
-            </Link>
-          </Grid>
+          <Link
+            to={{
+              pathname: box.to,
+              state: {
+                page: box.page,
+                packInfo: box.packInfo,
+                perPage: box.perPage,
+              },
+            }}
+            className="card-spec2">
+            {box.imgUrl}
+            <div className="contnent">
+              <h2 className="card-spec2-title">{box.title}</h2>
+              <p className="card-spec2-descr">{box.subTitle}</p>
+            </div>
+          </Link>
+        </Grid>
         ))}
       </Grid>
     </div>

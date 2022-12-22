@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import DynoDictionary from '.';
 import lessonsApi from 'apis/lessonsApi';
 
-function LessonData({page, packInfo, perPage}) {
+function LessonData({ page, packInfo, perPage }) {
   const [list, setList] = useState([]);
   // get word pack
   useEffect(() => {
@@ -22,8 +22,15 @@ function LessonData({page, packInfo, perPage}) {
         // }
 
         //Day la to fix cung code
-        const apiRes = await lessonsApi.getWordPackCWG('','');
-        setList(apiRes);
+        const apiRes = await lessonsApi.getWordList(
+          '-1',
+          [],
+          page,
+          perPage,
+          packInfo,
+        );
+        console.log(apiRes);
+        // setList(apiRes.data);
       } catch (error) {
       } finally {
         if (isSub) {
